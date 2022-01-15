@@ -1,11 +1,19 @@
 import { Table } from 'antd';
 import { useSelector } from 'react-redux';
-
+import { useDispatch } from 'react-redux';
 import PageHeader from '../PageHeader/PageHeader';
 import { columns } from '../../services/customer-service';
+import { useEffect } from 'react';
+import { getCustomers } from '../../stores/customerStore';
 
 function CustomerList() {
   const customers = useSelector((state) => state.customers);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCustomers());
+    return () => {};
+  }, [dispatch]);
 
   return (
     <div>

@@ -5,17 +5,13 @@ import { Outlet } from 'react-router-dom';
 
 import TopBar from '../NavigationaBar/TopBar.jsx';
 import SideBar from '../NavigationaBar/SideBar.jsx';
+import Notification from '../Common/Notification.jsx';
 import { getCustomers } from '../../stores/customerStore';
 
 function AppLayout() {
   const dispatch = useDispatch();
   const { Content } = Layout;
   const [collapse, setCollapse] = useState(false);
-
-  useEffect(() => {
-    dispatch(getCustomers());
-    return () => {};
-  }, [dispatch]);
 
   return (
     <Layout className="layout">
@@ -24,6 +20,7 @@ function AppLayout() {
         collapse={collapse}
         handleCollapse={(broken) => setCollapse(broken)}
       ></SideBar>
+      <Notification />
       <Content className="content container" >
         <Outlet />
       </Content>
