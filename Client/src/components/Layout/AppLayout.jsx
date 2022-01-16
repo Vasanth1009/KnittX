@@ -1,17 +1,22 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Layout } from 'antd';
-import { useDispatch } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 
 import TopBar from '../NavigationaBar/TopBar.jsx';
 import SideBar from '../NavigationaBar/SideBar.jsx';
-import Notification from '../Common/Notification.jsx';
-import { getCustomers } from '../../stores/customerStore';
+import { getCustomers } from '../../stores/customerStore.js';
+import { useDispatch } from 'react-redux';
 
-function AppLayout() {
-  const dispatch = useDispatch();
+const AppLayout = () => {
   const { Content } = Layout;
+  const dispatch = useDispatch();
+
   const [collapse, setCollapse] = useState(false);
+
+  useEffect(() => {
+    dispatch(getCustomers());
+    return () => {};
+  }, [dispatch]);
 
   return (
     <Layout className="layout">
@@ -20,12 +25,13 @@ function AppLayout() {
         collapse={collapse}
         handleCollapse={(broken) => setCollapse(broken)}
       ></SideBar>
-      <Notification />
-      <Content className="content container" >
+      <Content
+        className={(collapse ? 'ml-20' : 'ml-64') + ' content container'}
+      >
         <Outlet />
       </Content>
     </Layout>
   );
-}
+};
 
 export default AppLayout;

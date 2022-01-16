@@ -1,25 +1,31 @@
 import { Space, Popconfirm } from 'antd';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { HiOutlineTrash, HiOutlinePencilAlt } from '../../constants/Icons';
 
-function TableActionColumn({ deleteData }) {
+const TableActionColumn = ({ editData, deleteData }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const confirm = () => {
+  const confirmEdit = () => {
+    navigate(editData);
+  };
+
+  const confirmDelete = () => {
     dispatch(deleteData);
   };
 
   return (
     <div>
       <Space size="middle">
-        <HiOutlinePencilAlt color="#3366FF" />
-        <Popconfirm title="Sure to delete?" onConfirm={confirm}>
+        <HiOutlinePencilAlt color="#3366FF" onClick={confirmEdit} />
+        <Popconfirm title="Sure to delete?" onConfirm={confirmDelete}>
           <HiOutlineTrash color="#D14212" />
         </Popconfirm>
       </Space>
     </div>
   );
-}
+};
 
 export default TableActionColumn;
