@@ -16,16 +16,22 @@ const getColumnSearchProps = (dataIndex) => ({
         onChange={(e) =>
           setSelectedKeys(e.target.value ? [e.target.value] : [])
         }
-        onPressEnter={confirm}
+        onPressEnter={() => confirm()}
         style={{ marginBottom: 8, display: 'block' }}
       />
       <Space>
-        <Button onClick={clearFilters} style={{ width: 90 }}>
+        <Button
+          onClick={() => {
+            clearFilters();
+            confirm();
+          }}
+          style={{ width: 90 }}
+        >
           Reset
         </Button>
         <Button
           appearance="primary"
-          onClick={confirm}
+          onClick={() => confirm()}
           iconBefore={<HiSearch />}
           style={{ width: 90 }}
         >

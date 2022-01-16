@@ -12,7 +12,8 @@ const SideBar = ({ collapse, handleCollapse }) => {
   useEffect(() => {
     const checkNavigation = () => {
       navigations.forEach((navigation, index) => {
-        if (router.pathname === navigation.path) {
+        let pathname = `/${router.pathname.split('/')[1]}`;
+        if (pathname === navigation.path) {
           setSelectedPath(`${index + 1}`);
         }
       });

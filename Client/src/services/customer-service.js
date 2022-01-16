@@ -17,7 +17,7 @@ export const columns = [
     title: 'Address',
     dataIndex: 'address',
     key: 'address',
-    width: '25%',
+    width: '30%',
     render: (address) =>
       `${
         address.street +

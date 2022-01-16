@@ -27,7 +27,7 @@ export const addCustomer = (customer, callback) => async (dispatch) => {
       callback();
     }
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 };
 
@@ -40,7 +40,7 @@ export const editCustomer = (id, customer, callback) => async (dispatch) => {
       callback();
     }
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 };
 
