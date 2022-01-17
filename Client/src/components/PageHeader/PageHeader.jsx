@@ -1,7 +1,7 @@
 import { Pane, Heading, Button } from 'evergreen-ui';
 import { Link } from 'react-router-dom';
 
-function PageHeader({ heading, buttonText, path }) {
+const PageHeader = ({ heading, buttonText, path }) => {
   return (
     <div>
       <Pane
@@ -22,6 +22,6 @@ function PageHeader({ heading, buttonText, path }) {
       </Pane>
     </div>
   );
-}
+};
 
 export default PageHeader;

@@ -17,9 +17,15 @@ export const columns = [
     title: 'Address',
     dataIndex: 'address',
     key: 'address',
-    width: '25%',
+    width: '30%',
     render: (address) =>
-      `${address.street + ', ' + address.city + ' - ' + address.pinCode}`,
+      `${
+        address.street +
+        (address.street ? ', ' : '') +
+        address.city +
+        (address.pinCode ? ' - ' : '') +
+        address.pinCode
+      }`,
     ...getColumnSearchProps('address'),
   },
   {
@@ -55,6 +61,7 @@ export const columns = [
     align: 'center',
     render: (_, record) => (
       <TableActionColumn
+        editData={`${record._id}/edit`}
         deleteData={deleteCustomer(record._id)}
       ></TableActionColumn>
     ),

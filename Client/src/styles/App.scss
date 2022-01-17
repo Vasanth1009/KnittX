@@ -1,30 +1,21 @@
 .layout {
-  min-height: 100vh;
+  @apply min-h-screen min-w-full;
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-  z-index: 10;
-}
+  @apply flex items-center px-5 z-10;
 
-.logo {
-  padding: 0 40px;
-  font-size: 20px;
-  color: white;
+  .logo {
+    @apply px-10 text-xl text-white;
+  }
 }
 
 .sider-menu {
-  height: 100%;
-  font-size: 14px;
-  font-weight: 600;
-  padding-top: 80px;
+  @apply h-full text-sm font-semibold pt-20;
 }
 
 .content {
-  margin-top: 64px;
-  padding: 14px;
+  @apply mt-16 p-4 transition-all duration-200;
 }
 
 .form-control {

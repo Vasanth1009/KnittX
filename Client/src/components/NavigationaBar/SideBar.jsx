@@ -3,7 +3,7 @@ import { Layout, Menu } from 'antd';
 import { Link, useLocation } from 'react-router-dom';
 import { navigations } from '../../constants/Navigations';
 
-function SideBar({ collapse, handleCollapse }) {
+const SideBar = ({ collapse, handleCollapse }) => {
   const { Sider } = Layout;
   const router = useLocation();
   const [selectedPath, setSelectedPath] = useState('1');
@@ -12,7 +12,8 @@ function SideBar({ collapse, handleCollapse }) {
   useEffect(() => {
     const checkNavigation = () => {
       navigations.forEach((navigation, index) => {
-        if (router.pathname === navigation.path) {
+        let pathname = `/${router.pathname.split('/')[1]}`;
+        if (pathname === navigation.path) {
           setSelectedPath(`${index + 1}`);
         }
       });
@@ -29,6 +30,12 @@ function SideBar({ collapse, handleCollapse }) {
       trigger={null}
       collapsible
       collapsed={collapse}
+      style={{
+        position: 'fixed',
+        left: 0,
+        top: 0,
+        bottom: 0,
+      }}
     >
       <Menu
         defaultSelectedKeys={['1']}
@@ -44,6 +51,6 @@ function SideBar({ collapse, handleCollapse }) {
       </Menu>
     </Sider>
   );
-}
+};
 
 export default SideBar;

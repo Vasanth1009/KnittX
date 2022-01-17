@@ -1,24 +1,24 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
 export interface ICustomer extends Document {
-  name: string;
-  nickName: string;
+  name: String;
+  nickName: String;
   address: IAddress;
-  gstIN: string;
-  phoneNo: number;
-  contactPerson: string;
-  emailId: string;
-  isDeleted: boolean;
+  gstIN: String;
+  phoneNo: Number;
+  contactPerson: String;
+  emailId: String;
+  isDeleted: Boolean;
   createdAt: Date;
   updatedAt: Date;
 }
 
 interface IAddress {
-  street: string;
-  city: string;
-  pinCode: string;
-  state: string;
-  country: string;
+  street: String;
+  city: String;
+  pinCode: String;
+  state: String;
+  country: String;
 }
 
 const Customer = new Schema({
@@ -30,7 +30,6 @@ const Customer = new Schema({
   address: {
     street: {
       type: String,
-      required: true,
     },
     city: {
       type: String,
@@ -38,7 +37,6 @@ const Customer = new Schema({
     },
     pinCode: {
       type: String,
-      required: true,
     },
     state: {
       type: String,
@@ -51,7 +49,6 @@ const Customer = new Schema({
   },
   gstIN: {
     type: String,
-    required: true,
   },
   contactPerson: String,
   phoneNo: Number,

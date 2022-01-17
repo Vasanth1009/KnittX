@@ -3,7 +3,7 @@ import { IconButton } from 'evergreen-ui';
 import { Link } from 'react-router-dom';
 import { HiMenu } from '../../constants/Icons';
 
-function TopBar({ handleCollapse }) {
+const TopBar = ({ handleCollapse }) => {
   const { Header } = Layout;
   return (
     <Header
@@ -15,9 +15,11 @@ function TopBar({ handleCollapse }) {
         icon={<HiMenu />}
         onClick={handleCollapse}
       ></IconButton>
-      <Link to="/" className="text-3xl font-bold logo">KnittX</Link>
+      <Link to="/" className="text-3xl font-bold logo">
+        KnittX
+      </Link>
     </Header>
   );
-}
+};
 
 export default TopBar;

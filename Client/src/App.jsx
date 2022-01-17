@@ -9,7 +9,7 @@ import AppLayout from './components/Layout/AppLayout';
 import CustomerForm from './components/Customer/CustomerForm';
 import CustomerList from './components/Customer/CustomerList';
 
-function App() {
+const App = () => {
   return (
     <Router>
       <Routes>
@@ -18,6 +18,7 @@ function App() {
           <Route path="customers" element={<Customer />}>
             <Route index element={<CustomerList />} />
             <Route path="new" element={<CustomerForm />} />
+            <Route path=":id/edit" element={<CustomerForm />} />
           </Route>
           <Route path="invoices" element={<Invoice />} />
           <Route path="delivery-challans" element={<DeliveryChallan />} />
@@ -25,6 +26,6 @@ function App() {
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;
