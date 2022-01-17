@@ -1,8 +1,8 @@
-import express, { Application, Request, Response } from 'express';
+import express, { Request, Response } from 'express';
 import cors from 'cors';
 import customerRoute from './routes/customerRoute';
 
-const app: Application = express();
+const app = express();
 
 app.use(express.json());
 app.use(cors({ origin: '*' }));
