@@ -3,7 +3,7 @@ import { Layout, Menu } from 'antd';
 import { Link, useLocation } from 'react-router-dom';
 import { navigations } from '../../constants/Navigations';
 
-const SideBar = ({ collapse, handleCollapse }) => {
+const SideBar = ({ collapse, collapsible, handleCollapse }) => {
   const { Sider } = Layout;
   const router = useLocation();
   const [selectedPath, setSelectedPath] = useState('1');
@@ -24,18 +24,15 @@ const SideBar = ({ collapse, handleCollapse }) => {
   return (
     <Sider
       breakpoint="md"
-      onBreakpoint={(broken) => handleCollapse(broken)}
+      onBreakpoint={(broken) => {
+        handleCollapse(broken);
+      }}
       width={250}
-      className="site-layout-background"
       trigger={null}
       collapsible
       collapsed={collapse}
-      style={{
-        position: 'fixed',
-        left: 0,
-        top: 0,
-        bottom: 0,
-      }}
+      collapsedWidth={collapsible ? 0 : 80}
+      className="sider"
     >
       <Menu
         defaultSelectedKeys={['1']}

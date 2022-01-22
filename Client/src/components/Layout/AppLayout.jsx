@@ -12,6 +12,7 @@ const AppLayout = () => {
   const dispatch = useDispatch();
 
   const [collapse, setCollapse] = useState(false);
+  const [collapsible, setCollasible] = useState(false);
 
   useEffect(() => {
     dispatch(getCustomers());
@@ -23,10 +24,14 @@ const AppLayout = () => {
       <TopBar handleCollapse={() => setCollapse(!collapse)}></TopBar>
       <SideBar
         collapse={collapse}
-        handleCollapse={(broken) => setCollapse(broken)}
+        collapsible={collapsible}
+        handleCollapse={(broken) => setCollasible(broken)}
       ></SideBar>
       <Content
-        className={(collapse ? 'ml-20' : 'ml-64') + ' content container'}
+        className={
+          'content ' +
+          (collapse ? (collapsible ? 'ml-0' : 'ml-20') : 'ml-64')
+        }
       >
         <Outlet />
       </Content>

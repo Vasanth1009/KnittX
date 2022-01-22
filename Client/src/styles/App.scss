@@ -9,17 +9,24 @@
     @apply px-10 text-xl text-white;
   }
 }
+.sider {
+  @apply fixed h-full left-0;
 
-.sider-menu {
-  @apply h-full text-sm font-semibold pt-20;
+  .sider-menu {
+    @apply h-full text-sm font-semibold pt-20;
+  }
 }
 
 .content {
   @apply mt-16 p-4 transition-all duration-200;
-}
 
-.form-control {
-  @apply border w-full p-2 rounded bg-sky-50;
+  .form-control {
+    @apply border w-full p-2 rounded bg-sky-50;
+  }
+  
+  .page-header {
+    @apply flex drop-shadow p-4 bg-white rounded-md overflow-hidden;
+  }
 }
 
 .ant-select:not(.ant-select-customize-input) .ant-select-selector {
