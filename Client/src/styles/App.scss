@@ -3,12 +3,32 @@
 }
 
 .header {
-  @apply flex items-center px-5 z-10;
+  @apply flex items-center px-5 z-10 fixed w-full;
 
   .logo {
     @apply px-10 text-xl text-white;
   }
 }
+
+.menu {
+  @apply w-52;
+
+  .menu-avatar {
+    @apply flex gap-3 font-medium items-center justify-center flex-col;
+  }
+  .menu-buttons {
+    @apply mt-4;
+
+    .menu-button {
+      @apply rounded-md hover:bg-gray-100 h-10;
+
+      .menu-item {
+        @apply rounded-md gap-3 font-semibold flex items-center justify-center;
+      }
+    }
+  }
+}
+
 .sider {
   @apply fixed h-full left-0;
 
@@ -48,7 +68,6 @@
 
   .page-header {
     @apply flex p-4 bg-white rounded-md overflow-hidden;
-
   }
 }
 
@@ -58,4 +77,15 @@
 
 .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
   @apply h-10 px-3 py-1;
+}
+
+.ant-popover-arrow {
+  display: none;
+}
+.ant-popover {
+  @apply fixed;
+}
+
+.ant-popover-inner {
+  @apply rounded-lg;
 }

@@ -1,9 +1,8 @@
-import { NextFunction } from "express";
-import { STATUS_CODES } from "http";
-import HttpException from "../exceptions/HttpException";
-var serviceAccount = require("../../firebase-privateKey.json");
+import { NextFunction } from 'express';
+import HttpException from '../exceptions/HttpException';
+var serviceAccount = require('../../firebase-privateKey.json');
 
-const admin = require("firebase-admin");
+const admin = require('firebase-admin');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -11,8 +10,8 @@ admin.initializeApp({
 
 async function decodeIDToken(req: any, res: any, next: NextFunction) {
   const header = req.headers?.authorization;
-  if (header !== "Bearer null" && header?.startsWith("Bearer ")) {
-    const idToken = header.split("Bearer ")[1];
+  if (header !== 'Bearer null' && header?.startsWith('Bearer ')) {
+    const idToken = header.split('Bearer ')[1];
     try {
       const decodedToken = await admin.auth().verifyIdToken(idToken);
       req.currentUser = decodedToken;
@@ -20,7 +19,7 @@ async function decodeIDToken(req: any, res: any, next: NextFunction) {
       next(new HttpException(401, error.message));
     }
   } else {
-    next(new HttpException(401, "UnAuthorized").message);
+    next(new HttpException(401, 'UnAuthorized').message);
   }
   next();
 }
