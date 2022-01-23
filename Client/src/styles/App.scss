@@ -9,9 +9,12 @@
     @apply px-10 text-xl text-white;
   }
 }
+.sider {
+  @apply fixed h-full left-0;
 
-.sider-menu {
-  @apply h-full text-sm font-semibold pt-20;
+  .sider-menu {
+    @apply h-full text-sm font-semibold pt-20;
+  }
 }
 
 .form-control {
@@ -45,6 +48,7 @@
 
   .page-header {
     @apply flex p-4 bg-white rounded-md overflow-hidden;
+
   }
 }
 

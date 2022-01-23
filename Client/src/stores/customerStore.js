@@ -21,14 +21,7 @@ export const getCustomers = () => async (dispatch) => {
 
 export const addCustomer = (customer, callback) => async (dispatch) => {
   try {
-    var options = {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-        'Access-Control-Allow-Credentials': 'true',
-      },
-    };
-    const { data } = await axios.post(url, customer, options);
+    const { data } = await axios.post(url, customer);
     if (data.success) {
       dispatch({ type: ActionTypes.ADD_CUSTOMER, payload: data.customer });
       showNotification(
@@ -45,14 +38,7 @@ export const addCustomer = (customer, callback) => async (dispatch) => {
 
 export const editCustomer = (id, customer, callback) => async (dispatch) => {
   try {
-    var options = {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-        'Access-Control-Allow-Credentials': 'true',
-      },
-    };
-    const { data } = await axios.put(`${url}/${id}`, customer, options);
+    const { data } = await axios.put(`${url}/${id}`, customer);
     if (data.success) {
       dispatch({ type: ActionTypes.UPDATE_CUSTOMER, payload: data.customer });
       showNotification(
@@ -69,14 +55,7 @@ export const editCustomer = (id, customer, callback) => async (dispatch) => {
 
 export const deleteCustomer = (id) => async (dispatch) => {
   try {
-    var options = {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-        'Access-Control-Allow-Credentials': 'true',
-      },
-    };
-    const { data } = await axios.delete(`${url}/${id}`, options);
+    const { data } = await axios.delete(`${url}/${id}`);
     if (data.success) {
       dispatch({ type: ActionTypes.DELETE_CUSTOMER, payload: id });
       showNotification(
@@ -92,14 +71,7 @@ export const deleteCustomer = (id) => async (dispatch) => {
 
 export const deleteMultipleCustomer = (ids) => async (dispatch) => {
   try {
-    var options = {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-        'Access-Control-Allow-Credentials': 'true',
-      },
-    };
-    const { data } = await axios.delete(url, { data: ids }, options);
+    const { data } = await axios.delete(url, { data: ids });
     if (data.success) {
       dispatch({ type: ActionTypes.DELETE_MULTIPLE_CUSTOMER, payload: ids });
       showNotification(

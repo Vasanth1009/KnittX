@@ -15,7 +15,7 @@ const CustomerList = () => {
   useEffect(() => {
     setSelectedCustomers([]);
   }, [customers]);
-
+  
   const rowSelection = {
     selectedCustomers,
     onChange: (selectedCustomerIds) =>
