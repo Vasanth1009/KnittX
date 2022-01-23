@@ -8,11 +8,13 @@ import Profile from './pages/Profile';
 import AppLayout from './components/Layout/AppLayout';
 import CustomerForm from './components/Customer/CustomerForm';
 import CustomerList from './components/Customer/CustomerList';
+import Login from './pages/Login';
 
 const App = () => {
   return (
     <Router>
       <Routes>
+        <Route path="login" element={<Login />} />
         <Route path="/" element={<AppLayout />}>
           <Route index element={<Profile />} />
           <Route path="customers" element={<Customer />}>

@@ -29,8 +29,7 @@ const AppLayout = () => {
       ></SideBar>
       <Content
         className={
-          'content ' +
-          (collapse ? (collapsible ? 'ml-0' : 'ml-20') : 'ml-64')
+          'content ' + (collapse ? (collapsible ? 'ml-0' : 'ml-20') : 'ml-64')
         }
       >
         <Outlet />
