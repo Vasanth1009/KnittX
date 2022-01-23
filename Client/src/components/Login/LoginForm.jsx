@@ -1,20 +1,38 @@
-import { Form, Input } from 'antd';
-import { Button } from 'evergreen-ui';
-import { Link } from 'react-router-dom';
+import { Form, Input } from "antd";
+import { Button } from "evergreen-ui";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
+  const auth = getAuth();
+
+  const onFinish = (data) => {
+    console.log(data);
+    signInWithEmailAndPassword(auth, data.email, data.password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+  };
+
   return (
-    <Form layout="vertical" className="login_form">
+    <Form layout="vertical" className="login_form" onFinish={onFinish}>
       <h1 className="heading">Welcome to KnittX</h1>
       <div className="mb-5">
         <Form.Item
-          name={'email'}
+          name={"email"}
           label="Email"
           className="font-medium"
           rules={[
             {
               required: true,
-              message: 'Please input your email!',
+              message: "Please input your email!",
             },
           ]}
         >
@@ -22,29 +40,27 @@ const LoginForm = () => {
         </Form.Item>
 
         <Form.Item
-          name={'password'}
+          name={"password"}
           label="Password"
           className="font-medium"
           rules={[
             {
               required: true,
-              message: 'Please input your password!',
+              message: "Please input your password!",
             },
           ]}
         >
           <Input.Password className="form-control" required />
         </Form.Item>
       </div>
-      <Link to="/customers">
-        <Button
-          appearance="primary"
-          type="submit"
-          size="large"
-          className="w-full"
-        >
-          <div className="text-base">Login</div>
-        </Button>
-      </Link>
+      <Button
+        appearance="primary"
+        type="submit"
+        size="large"
+        className="w-full"
+      >
+        <div className="text-base">Login</div>
+      </Button>
 
       <div className="terms">
         By continuing, you agree to KnittX's
