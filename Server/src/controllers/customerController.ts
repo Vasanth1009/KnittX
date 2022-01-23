@@ -1,10 +1,9 @@
 import { Request, Response } from 'express';
-import Customer, { ICustomer } from '../models/customer';
+import CustomerService from '../services/customerService';
 
 export const getCustomers = async (req: Request, res: Response) => {
   try {
-    let customers = await Customer.find();
-    customers = customers.filter((customer) => customer.isDeleted === false);
+    let customers = await CustomerService.getCustomers();
     res.status(200).json({ success: true, customers });
   } catch (error: any) {
     res.status(404).json({ success: false, message: error.message });
@@ -14,7 +13,7 @@ export const getCustomers = async (req: Request, res: Response) => {
 export const createCustomer = async (req: Request, res: Response) => {
   try {
     let customer = req.body;
-    customer = await Customer.create(customer);
+    customer = await CustomerService.createCustomer(customer);
     res.status(201).json({ success: true, customer });
   } catch (error: any) {
     res.status(409).json({ success: false, message: error.message });
@@ -24,9 +23,7 @@ export const createCustomer = async (req: Request, res: Response) => {
 export const updateCustomer = async (req: Request, res: Response) => {
   try {
     let customer = req.body;
-    customer = await Customer.findByIdAndUpdate(req.params.id, customer, {
-      new: true,
-    });
+    customer = await CustomerService.updateCustomer(req.params.id, customer);
 
     if (!customer) {
       res.status(404).json({
@@ -43,11 +40,7 @@ export const updateCustomer = async (req: Request, res: Response) => {
 
 export const deleteCustomer = async (req: Request, res: Response) => {
   try {
-    let customer = await Customer.findByIdAndUpdate(
-      req.params.id,
-      { $set: { isDeleted: true } },
-      { new: true }
-    );
+    let customer = await CustomerService.deleteCustomer(req.params.id);
 
     if (!customer) {
       res.status(404).json({
@@ -58,7 +51,7 @@ export const deleteCustomer = async (req: Request, res: Response) => {
 
     res.status(200).json({
       success: true,
-      message: 'Customer deleted sucessfully',
+      customer,
     });
   } catch (error: any) {
     res.status(409).json({ success: false, message: error.message });
@@ -68,15 +61,11 @@ export const deleteCustomer = async (req: Request, res: Response) => {
 export const deleteMultipleCustomer = async (req: Request, res: Response) => {
   try {
     let customerIds = req.body;
-    await Customer.updateMany(
-      { _id: { $in: customerIds } },
-      { $set: { isDeleted: true } },
-      { multi: true }
-    );
+    const customers = await CustomerService.deleteMultipleCustomer(customerIds);
 
     res.status(200).json({
       success: true,
-      message: 'Customers deleted sucessfully',
+      customers,
     });
   } catch (error: any) {
     res.status(409).json({ success: false, message: error.message });

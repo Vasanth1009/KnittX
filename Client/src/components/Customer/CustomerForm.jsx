@@ -9,6 +9,19 @@ import { addCustomer, editCustomer } from '../../stores/customerStore';
 import { useEffect, useState } from 'react';
 
 const CustomerForm = () => {
+  const initialValues = {
+    name: '',
+    address: {
+      country: 'IN',
+      state: 'TN',
+    },
+    nickName: '',
+    emailId: '',
+    gstIN: '',
+    contactPerson: '',
+    phoneNo: '',
+  };
+
   const { Option } = Select;
   const [form] = Form.useForm();
   const dispatch = useDispatch();
@@ -51,18 +64,7 @@ const CustomerForm = () => {
           form={form}
           layout="vertical"
           onFinish={onSubmit}
-          initialValues={{
-            name: '',
-            address: {
-              country: 'IN',
-              state: 'TN',
-            },
-            nickName: '',
-            emailId: '',
-            gstIN: '',
-            contactPerson: '',
-            phoneNo: '',
-          }}
+          initialValues={initialValues}
         >
           <h3 className="mb-5 font-semibold">Basic Information</h3>
           <div className="md:flex gap-4">

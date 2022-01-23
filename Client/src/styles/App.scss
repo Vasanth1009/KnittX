@@ -14,16 +14,42 @@
   @apply h-full text-sm font-semibold pt-20;
 }
 
-.content {
-  @apply mt-16 p-4 transition-all duration-200;
+.form-control {
+  @apply border w-full p-2 rounded;
 }
 
-.form-control {
-  @apply border w-full p-2 rounded bg-sky-50;
+.login {
+  @apply h-screen w-screen px-36 flex items-center justify-center;
+
+  .login_form {
+    @apply w-[380px] flex flex-col bg-white  px-6 py-6 rounded-md shadow-md 
+        text-black overflow-hidden;
+
+    .heading {
+      @apply mb-5 text-2xl space-x-2 font-bold flex 
+            items-center justify-center;
+    }
+
+    .terms {
+      @apply text-center text-xs text-gray-500 mt-4;
+
+      .link {
+        @apply mx-1 hover:underline text-blue-500;
+      }
+    }
+  }
+}
+
+.content {
+  @apply mt-16 p-4 transition-all duration-200;
+
+  .page-header {
+    @apply flex p-4 bg-white rounded-md overflow-hidden;
+  }
 }
 
 .ant-select:not(.ant-select-customize-input) .ant-select-selector {
-  @apply border w-full rounded bg-sky-50;
+  @apply border w-full rounded;
 }
 
 .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {

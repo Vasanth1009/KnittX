@@ -1,6 +1,7 @@
 import axios from '../helpers/http-client';
 import showNotification from '../helpers/NotificationStatus';
 import ActionTypes from './types';
+import NotificationTypes from '../constants/NotificationTypes';
 
 const url = '/customer';
 
@@ -30,7 +31,11 @@ export const addCustomer = (customer, callback) => async (dispatch) => {
     const { data } = await axios.post(url, customer, options);
     if (data.success) {
       dispatch({ type: ActionTypes.ADD_CUSTOMER, payload: data.customer });
-      showNotification('Customer added successfully!!!', 'Success');
+      showNotification(
+        NotificationTypes.Added_Successfull,
+        `Customer ${data.customer.name} added successfully.`,
+        NotificationTypes.Success
+      );
       callback();
     }
   } catch (error) {
@@ -50,7 +55,11 @@ export const editCustomer = (id, customer, callback) => async (dispatch) => {
     const { data } = await axios.put(`${url}/${id}`, customer, options);
     if (data.success) {
       dispatch({ type: ActionTypes.UPDATE_CUSTOMER, payload: data.customer });
-      showNotification('Customer updated successfully!!!', 'Success');
+      showNotification(
+        NotificationTypes.Updated_Successfull,
+        `Customer ${data.customer.name} updated successfully.`,
+        NotificationTypes.Success
+      );
       callback();
     }
   } catch (error) {
@@ -70,7 +79,11 @@ export const deleteCustomer = (id) => async (dispatch) => {
     const { data } = await axios.delete(`${url}/${id}`, options);
     if (data.success) {
       dispatch({ type: ActionTypes.DELETE_CUSTOMER, payload: id });
-      showNotification('Customer deleted successfully!!!', 'Success');
+      showNotification(
+        NotificationTypes.Deleted_Successfull,
+        `Customer ${data.customer.name} deleted successfully.`,
+        NotificationTypes.Success
+      );
     }
   } catch (error) {
     console.log(error.message);
@@ -89,7 +102,11 @@ export const deleteMultipleCustomer = (ids) => async (dispatch) => {
     const { data } = await axios.delete(url, { data: ids }, options);
     if (data.success) {
       dispatch({ type: ActionTypes.DELETE_MULTIPLE_CUSTOMER, payload: ids });
-      showNotification('Customers deleted successfully!!!', 'Success');
+      showNotification(
+        NotificationTypes.Deleted_Successfull,
+        'Customers deleted successfully.',
+        'Success'
+      );
     }
   } catch (error) {
     console.log(error.message);

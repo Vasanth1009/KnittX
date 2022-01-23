@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PageHeader from '../PageHeader/PageHeader';
 import { columns } from '../../services/customer-service';
 import { Button } from 'evergreen-ui';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { HiOutlineTrash } from '../../constants/Icons';
 import { deleteMultipleCustomer } from '../../stores/customerStore';
 
@@ -11,6 +11,10 @@ const CustomerList = () => {
   const customers = useSelector((state) => state.customers);
   const dispatch = useDispatch();
   const [selectedCustomers, setSelectedCustomers] = useState([]);
+
+  useEffect(() => {
+    setSelectedCustomers([]);
+  }, [customers]);
 
   const rowSelection = {
     selectedCustomers,
