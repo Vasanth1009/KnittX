@@ -87,3 +87,6 @@ Release/
 appsettings.json
 appsettings.Development.json
 .vs
+
+#other files
+firebase-privateKey.json
