@@ -1,7 +1,7 @@
-import { Request, Response } from 'express';
-import CustomerService from '../services/customerService';
+import { Request, Response } from "express";
+import CustomerService from "../services/customerService";
 
-export const getCustomers = async (req: Request, res: Response) => {
+export const getCustomers = async (req: any, res: Response) => {
   try {
     let customers = await CustomerService.getCustomers();
     res.status(200).json({ success: true, customers });
@@ -28,7 +28,7 @@ export const updateCustomer = async (req: Request, res: Response) => {
     if (!customer) {
       res.status(404).json({
         success: false,
-        message: 'Customer Not Found',
+        message: "Customer Not Found",
       });
     }
 
@@ -45,7 +45,7 @@ export const deleteCustomer = async (req: Request, res: Response) => {
     if (!customer) {
       res.status(404).json({
         success: false,
-        message: 'Customer Not Found',
+        message: "Customer Not Found",
       });
     }
 

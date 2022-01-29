@@ -1,9 +1,9 @@
-import axios from '../helpers/http-client';
-import showNotification from '../helpers/NotificationStatus';
-import ActionTypes from './types';
-import NotificationTypes from '../constants/NotificationTypes';
+import axios from "../helpers/http-client";
+import showNotification from "../helpers/NotificationStatus";
+import ActionTypes from "./types";
+import NotificationTypes from "../constants/NotificationTypes";
 
-const url = '/customer';
+const url = "/customer";
 
 export const getCustomers = () => async (dispatch) => {
   try {
@@ -76,8 +76,8 @@ export const deleteMultipleCustomer = (ids) => async (dispatch) => {
       dispatch({ type: ActionTypes.DELETE_MULTIPLE_CUSTOMER, payload: ids });
       showNotification(
         NotificationTypes.Deleted_Successfull,
-        'Customers deleted successfully.',
-        'Success'
+        "Customers deleted successfully.",
+        "Success"
       );
     }
   } catch (error) {

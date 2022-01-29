@@ -27,7 +27,7 @@ const SideBar = ({ collapse, collapsible, handleCollapse }) => {
       onBreakpoint={(broken) => {
         handleCollapse(broken);
       }}
-      width={250}
+      width={256}
       trigger={null}
       collapsible
       collapsed={collapse}

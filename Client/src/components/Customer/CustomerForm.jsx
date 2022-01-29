@@ -1,25 +1,25 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
-import { Button } from 'evergreen-ui';
-import { Form, Input, Select } from 'antd';
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { Button } from "evergreen-ui";
+import { Form, Input, Select } from "antd";
 
-import { states } from '../../constants/States';
-import { countries } from '../../constants/Countries';
-import { addCustomer, editCustomer } from '../../stores/customerStore';
-import { useEffect, useState } from 'react';
+import { states } from "../../constants/States";
+import { countries } from "../../constants/Countries";
+import { addCustomer, editCustomer } from "../../stores/customerStore";
+import { useEffect, useState } from "react";
 
 const CustomerForm = () => {
   const initialValues = {
-    name: '',
+    name: "",
     address: {
-      country: 'IN',
-      state: 'TN',
+      country: "IN",
+      state: "TN",
     },
-    nickName: '',
-    emailId: '',
-    gstIN: '',
-    contactPerson: '',
-    phoneNo: '',
+    nickName: "",
+    emailId: "",
+    gstIN: "",
+    contactPerson: "",
+    phoneNo: "",
   };
 
   const { Option } = Select;
@@ -46,7 +46,7 @@ const CustomerForm = () => {
   }, [id, customers, customer, form]);
 
   const redirectToCustomerList = () => {
-    navigate('/customers');
+    navigate("/customers");
   };
 
   const onSubmit = (data) => {
@@ -69,7 +69,7 @@ const CustomerForm = () => {
           <h3 className="mb-5 font-semibold">Basic Information</h3>
           <div className="md:flex gap-4">
             <Form.Item
-              name={'name'}
+              name={"name"}
               label="Customer Name"
               className="md:w-1/2 font-medium"
               required
@@ -78,7 +78,7 @@ const CustomerForm = () => {
             </Form.Item>
 
             <Form.Item
-              name={'nickName'}
+              name={"nickName"}
               label="Alias (Nick Name)"
               className="md:w-1/2 font-medium"
             >
@@ -88,14 +88,14 @@ const CustomerForm = () => {
 
           <div className="md:flex gap-4">
             <Form.Item
-              name={'contactPerson'}
+              name={"contactPerson"}
               label="Contact Person"
               className="md:w-1/2 font-medium"
             >
               <Input className="form-control" />
             </Form.Item>
             <Form.Item
-              name={'gstIN'}
+              name={"gstIN"}
               label="GSTIN"
               className="md:w-1/2 font-medium"
             >
@@ -105,14 +105,14 @@ const CustomerForm = () => {
 
           <div className="md:flex gap-4">
             <Form.Item
-              name={'phoneNo'}
+              name={"phoneNo"}
               label="Phone Number"
               className="md:w-1/2 font-medium"
             >
               <Input className="form-control" />
             </Form.Item>
             <Form.Item
-              name={'emailId'}
+              name={"emailId"}
               label="Email"
               className="md:w-1/2 font-medium"
             >
@@ -123,7 +123,7 @@ const CustomerForm = () => {
           <h3 className="my-5 font-semibold">Address</h3>
           <div className="md:flex gap-4">
             <Form.Item
-              name={['address', 'street']}
+              name={["address", "street"]}
               label="Street"
               className="w-full font-medium"
             >
@@ -133,7 +133,7 @@ const CustomerForm = () => {
 
           <div className="md:flex gap-4">
             <Form.Item
-              name={['address', 'city']}
+              name={["address", "city"]}
               label="City"
               className="md:w-1/2 font-medium"
               required
@@ -141,7 +141,7 @@ const CustomerForm = () => {
               <Input className="form-control" required />
             </Form.Item>
             <Form.Item
-              name={['address', 'pinCode']}
+              name={["address", "pinCode"]}
               label="Postal Code"
               className="md:w-1/2 font-medium"
             >
@@ -151,7 +151,7 @@ const CustomerForm = () => {
 
           <div className="md:flex gap-4">
             <Form.Item
-              name={['address', 'country']}
+              name={["address", "country"]}
               label="Country"
               className="md:w-1/2 font-medium"
               required
@@ -160,16 +160,16 @@ const CustomerForm = () => {
                 showSearch
                 optionFilterProp="children"
                 onChange={(value) => {
-                  if (value === 'IN') {
+                  if (value === "IN") {
                     form.setFieldsValue({
                       address: {
-                        state: 'TN',
+                        state: "TN",
                       },
                     });
                   } else {
                     form.setFieldsValue({
                       address: {
-                        state: '',
+                        state: "",
                       },
                     });
                   }
@@ -187,8 +187,8 @@ const CustomerForm = () => {
               required
             >
               {({ getFieldValue }) =>
-                getFieldValue(['address', 'country']) === 'IN' ? (
-                  <Form.Item name={['address', 'state']}>
+                getFieldValue(["address", "country"]) === "IN" ? (
+                  <Form.Item name={["address", "state"]}>
                     <Select showSearch optionFilterProp="children">
                       {states.map((state) => {
                         return <Option key={state.value}>{state.name}</Option>;
@@ -196,7 +196,7 @@ const CustomerForm = () => {
                     </Select>
                   </Form.Item>
                 ) : (
-                  <Form.Item name={['address', 'state']}>
+                  <Form.Item name={["address", "state"]}>
                     <Input className="form-control" required />
                   </Form.Item>
                 )
