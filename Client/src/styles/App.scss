@@ -20,11 +20,8 @@
     @apply mt-4;
 
     .menu-button {
-      @apply rounded-md hover:bg-gray-100 h-10;
-
-      .menu-item {
-        @apply rounded-md gap-3 font-semibold flex items-center justify-center;
-      }
+      @apply rounded-md hover:bg-gray-100 h-10 gap-3 font-semibold flex 
+        items-center justify-center;
     }
   }
 }
@@ -41,10 +38,11 @@
   @apply border w-full p-2 rounded;
 }
 
-.login {
-  @apply h-screen w-screen px-36 flex items-center justify-center;
+.login,
+.signup {
+  @apply h-screen w-screen px-36 flex items-center justify-center gap-3;
 
-  .login_form {
+  .auth_form {
     @apply w-[380px] flex flex-col bg-white  px-6 py-6 rounded-md shadow-md 
         text-black overflow-hidden;
 

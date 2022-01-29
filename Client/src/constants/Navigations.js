@@ -9,7 +9,7 @@ export const navigations = [
   {
     name: 'Your Profile',
     icon: <FaRegUser />,
-    path: '/',
+    path: '/profile',
   },
   {
     name: 'Customers',

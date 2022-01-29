@@ -1,17 +1,31 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import { initializeApp } from 'firebase/app';
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
+
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
-  authDomain: "knittx-2022.firebaseapp.com",
-  projectId: "knittx-2022",
-  storageBucket: "knittx-2022.appspot.com",
-  messagingSenderId: "742513583752",
+  authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECTID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGINGSENDERID,
   appId: process.env.REACT_APP_FIREBASE_APPID,
-  measurementId: "G-ZE92CSVJYV"
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENTID,
 };
 
-// Initialize Firebase
 const fireApp = initializeApp(firebaseConfig);
+export const auth = getAuth(fireApp);
+
+export const login = async (email, password) => {
+  return await signInWithEmailAndPassword(auth, email, password);
+};
+export const signup = async (email, password) => {
+  return await createUserWithEmailAndPassword(auth, email, password);
+};
+export const logout = () => {
+  auth.signOut();
+};
+
 export default fireApp;

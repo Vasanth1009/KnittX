@@ -8,7 +8,7 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
 
-async function decodeIDToken(req: any, res: any, next: NextFunction) {
+const decodeIDToken = async (req: any, res: any, next: NextFunction) => {
   const header = req.headers?.authorization;
   if (header !== 'Bearer null' && header?.startsWith('Bearer ')) {
     const idToken = header.split('Bearer ')[1];
@@ -22,5 +22,6 @@ async function decodeIDToken(req: any, res: any, next: NextFunction) {
     next(new HttpException(401, 'UnAuthorized').message);
   }
   next();
-}
-module.exports = decodeIDToken;
+};
+
+export default decodeIDToken;

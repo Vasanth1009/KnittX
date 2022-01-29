@@ -2,15 +2,15 @@ import { Layout } from 'antd';
 import { Link } from 'react-router-dom';
 import AuthForm from '../components/AuthForm/AuthForm';
 
-const Login = () => {
+const SignUp = () => {
   return (
-    <Layout className="login">
-      <AuthForm title="Login" />
+    <Layout className="signup">
+      <AuthForm title="Register" />
       <div>
-        Don't have a account? <Link to="/signup">Sign up</Link>{' '}
+        Already have an account? <Link to="/login">Log in</Link>{' '}
       </div>
     </Layout>
   );
 };
 
-export default Login;
+export default SignUp;
