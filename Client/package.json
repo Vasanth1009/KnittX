@@ -3,12 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^6.4.3",
+    "@david.kucsai/react-pdf-table": "^0.3.0",
+    "@react-pdf/renderer": "^2.1.1",
     "antd": "^4.17.4",
+    "assert": "^2.0.0",
     "axios": "^0.24.0",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^6.0.3",
     "eslint-config-react-app": "^7.0.0",
     "evergreen-ui": "^6.6.4",
     "firebase": "^9.6.4",
     "node-sass": "^7.0.1",
+    "process": "^0.11.10",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
@@ -16,12 +23,14 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.0",
     "redux": "^4.1.2",
-    "redux-thunk": "^2.4.1"
+    "redux-thunk": "^2.4.1",
+    "stream-browserify": "^3.0.0",
+    "util": "^0.12.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
