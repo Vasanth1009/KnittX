@@ -6,11 +6,11 @@ import {
 } from './Icons.js';
 
 export const navigations = [
-  {
-    name: 'Your Profile',
-    icon: <FaRegUser />,
-    path: '/profile',
-  },
+  // {
+  //   name: 'Your Profile',
+  //   icon: <FaRegUser />,
+  //   path: '/profile',
+  // },
   {
     name: 'Customers',
     icon: <RiContactsLine />,

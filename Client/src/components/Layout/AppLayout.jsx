@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
-import { Layout } from "antd";
-import { Outlet } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { Layout } from 'antd';
+import { Outlet } from 'react-router-dom';
 
-import TopBar from "../NavigationaBar/TopBar.jsx";
-import SideBar from "../NavigationaBar/SideBar.jsx";
-import { getCustomers } from "../../stores/customerStore.js";
-import { useDispatch } from "react-redux";
+import TopBar from '../NavigationBar/TopBar.jsx';
+import SideBar from '../NavigationBar/SideBar.jsx';
+import { getCustomers } from '../../stores/customerStore.js';
+import { useDispatch } from 'react-redux';
 
 const AppLayout = () => {
   const { Content } = Layout;
   const dispatch = useDispatch();
 
   const [collapse, setCollapse] = useState(false);
-  const [collapsible, setCollasible] = useState(false);
+  const [collapsible, setCollapsible] = useState(false);
 
   useEffect(() => {
     dispatch(getCustomers());
@@ -25,11 +25,11 @@ const AppLayout = () => {
       <SideBar
         collapse={collapse}
         collapsible={collapsible}
-        handleCollapse={(broken) => setCollasible(broken)}
+        handleCollapse={(broken) => setCollapsible(broken)}
       ></SideBar>
       <Content
         className={
-          "content " + (collapse ? (collapsible ? "ml-0" : "ml-20") : "ml-64")
+          'content ' + (collapse ? (collapsible ? 'ml-0' : 'ml-20') : 'ml-64')
         }
       >
         <Outlet />

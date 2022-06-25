@@ -30,9 +30,9 @@ const TopBar = ({ handleCollapse }) => {
           src={<Image src="https://joeschmoe.io/api/v1/random" />}
           size={100}
         >
-          Ada
+          Vasanth Prabhakaran
         </Avatar>
-        <span>Ada</span>
+        <span className="menu-">Vasanth Prabhakaran</span>
       </div>
       <div className="menu-buttons">
         <Button
@@ -51,18 +51,17 @@ const TopBar = ({ handleCollapse }) => {
   return (
     <Header className="header">
       <Pane flex={1} alignItems="center" display="flex">
-        <IconButton
-          appearance="primary"
-          icon={<HiMenu />}
-          onClick={handleCollapse}
-        ></IconButton>
+        <HiMenu color="ffffff" onClick={handleCollapse} className="w-6 h-6" />
         <Link to="/" className="text-3xl font-bold logo">
           KnittX
         </Link>
       </Pane>
       <Pane>
         <Popover placement="bottomRight" content={content} trigger="click">
-          <Avatar src="https://joeschmoe.io/api/v1/random" />
+          <Avatar
+            src="https://joeschmoe.io/api/v1/random"
+            className="cursor-pointer"
+          />
         </Popover>
       </Pane>
     </Header>

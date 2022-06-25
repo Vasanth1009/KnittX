@@ -1,11 +1,5 @@
-import Invoice from '../components/Templates/InvoicePDF/Invoice';
-
 const Profile = () => {
-  return (
-    <div>
-      <Invoice />
-    </div>
-  );
+  return <div>Profile</div>;
 };
 
 export default Profile;
