@@ -21,7 +21,7 @@ interface IAddress {
   country: String;
 }
 
-const Customer = new Schema({
+export const CustomerSchema = new Schema({
   name: {
     type: String,
     required: [true, 'Customer name required'],
@@ -68,4 +68,8 @@ const Customer = new Schema({
   },
 });
 
-export default mongoose.model<ICustomer>('Customer', Customer, 'customers');
+export default mongoose.model<ICustomer>(
+  'Customer',
+  CustomerSchema,
+  'customers'
+);
