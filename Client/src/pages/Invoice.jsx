@@ -1,5 +1,11 @@
+import { Outlet } from 'react-router-dom';
+
 const Invoice = () => {
-  return <div>Invoice</div>;
+  return (
+    <div>
+      <Outlet />
+    </div>
+  );
 };
 
 export default Invoice;

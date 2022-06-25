@@ -14,12 +14,9 @@ const AuthForm = ({ title }) => {
       await login(data.email, data.password)
         .then(({ user }) => {
           navigate('/');
-          console.log(user);
           localStorage.setItem('currentUser', JSON.stringify(user));
         })
         .catch((error) => {
-          console.log(error.code);
-          console.log(error.message);
           if (error.code === 'auth/wrong-password') {
             showNotification(
               NotificationTypes.Error,
@@ -49,8 +46,6 @@ const AuthForm = ({ title }) => {
           localStorage.setItem('currentUser', JSON.stringify(user));
         })
         .catch((error) => {
-          console.log(error.code);
-          console.log(error.message);
           if (error.code === 'auth/email-already-in-use') {
             showNotification(
               NotificationTypes.Error,

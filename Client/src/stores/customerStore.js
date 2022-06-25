@@ -1,9 +1,9 @@
-import axios from "../helpers/http-client";
-import showNotification from "../helpers/NotificationStatus";
-import ActionTypes from "./types";
-import NotificationTypes from "../constants/NotificationTypes";
+import axios from '../helpers/http-client';
+import showNotification from '../helpers/NotificationStatus';
+import ActionTypes from './types';
+import NotificationTypes from '../constants/NotificationTypes';
 
-const url = "/customer";
+const url = '/customer';
 
 export const getCustomers = () => async (dispatch) => {
   try {
@@ -25,7 +25,7 @@ export const addCustomer = (customer, callback) => async (dispatch) => {
     if (data.success) {
       dispatch({ type: ActionTypes.ADD_CUSTOMER, payload: data.customer });
       showNotification(
-        NotificationTypes.Added_Successfull,
+        NotificationTypes.Added_Successful,
         `Customer ${data.customer.name} added successfully.`,
         NotificationTypes.Success
       );
@@ -42,7 +42,7 @@ export const editCustomer = (id, customer, callback) => async (dispatch) => {
     if (data.success) {
       dispatch({ type: ActionTypes.UPDATE_CUSTOMER, payload: data.customer });
       showNotification(
-        NotificationTypes.Updated_Successfull,
+        NotificationTypes.Updated_Successful,
         `Customer ${data.customer.name} updated successfully.`,
         NotificationTypes.Success
       );
@@ -59,7 +59,7 @@ export const deleteCustomer = (id) => async (dispatch) => {
     if (data.success) {
       dispatch({ type: ActionTypes.DELETE_CUSTOMER, payload: id });
       showNotification(
-        NotificationTypes.Deleted_Successfull,
+        NotificationTypes.Deleted_Successful,
         `Customer ${data.customer.name} deleted successfully.`,
         NotificationTypes.Success
       );
@@ -75,9 +75,9 @@ export const deleteMultipleCustomer = (ids) => async (dispatch) => {
     if (data.success) {
       dispatch({ type: ActionTypes.DELETE_MULTIPLE_CUSTOMER, payload: ids });
       showNotification(
-        NotificationTypes.Deleted_Successfull,
-        "Customers deleted successfully.",
-        "Success"
+        NotificationTypes.Deleted_Successful,
+        'Customers deleted successfully.',
+        'Success'
       );
     }
   } catch (error) {

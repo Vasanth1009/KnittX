@@ -6,7 +6,7 @@
   @apply flex items-center px-5 z-10 fixed w-full;
 
   .logo {
-    @apply px-10 text-xl text-white;
+    @apply px-5 text-xl text-white;
   }
 }
 
@@ -21,7 +21,7 @@
 
     .menu-button {
       @apply rounded-md hover:bg-gray-100 h-10 gap-3 font-semibold flex 
-        items-center justify-center;
+        items-center justify-center text-gray-500;
     }
   }
 }
@@ -30,12 +30,21 @@
   @apply fixed h-full left-0;
 
   .sider-menu {
-    @apply h-full text-sm font-semibold pt-20;
+    @apply h-full text-sm font-semibold pt-20 select-none;
   }
 }
 
 .form-control {
-  @apply border w-full p-2 rounded;
+  @apply p-2 rounded;
+}
+
+.input-field {
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #1890ff;
+  padding: 0 5px;
+  box-shadow: none !important;
+  outline: none;
 }
 
 .login,
@@ -78,8 +87,9 @@
 }
 
 .ant-popover-arrow {
-  display: none;
+  @apply hidden;
 }
+
 .ant-popover {
   @apply fixed;
 }

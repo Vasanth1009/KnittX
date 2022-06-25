@@ -27,14 +27,18 @@ import {
   HiMenu,
   HiOutlineClock,
   HiOutlineUsers,
+  HiOutlineUserCircle,
   HiOutlineUserAdd,
   HiOutlineLogout,
   HiOutlineTrash,
   HiOutlineViewGridAdd,
   HiSearch,
 } from 'react-icons/hi';
+import { PlusCircleOutlined, UserOutlined } from '@ant-design/icons';
+import { BsPlusSquareDotted } from 'react-icons/bs';
 
 export {
+  BsPlusSquareDotted,
   CgFolder,
   FiBell,
   FiInbox,
@@ -58,6 +62,7 @@ export {
   HiOutlineLogout,
   HiOutlineUserAdd,
   HiOutlinePencilAlt,
+  HiOutlineUserCircle,
   HiOutlineViewGridAdd,
   HiOutlineDotsHorizontal,
   ImFilter,
@@ -70,4 +75,6 @@ export {
   RiFileListLine,
   TiContacts,
   TiFlowChildren,
+  PlusCircleOutlined,
+  UserOutlined,
 };

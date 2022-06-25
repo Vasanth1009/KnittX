@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Layout, Menu } from 'antd';
 import { Link, useLocation } from 'react-router-dom';
-import { navigations } from '../../constants/Navigations';
+import { navigations } from '../../constants/Navigation';
 
 const SideBar = ({ collapse, collapsible, handleCollapse }) => {
   const { Sider } = Layout;
@@ -31,7 +31,7 @@ const SideBar = ({ collapse, collapsible, handleCollapse }) => {
       trigger={null}
       collapsible
       collapsed={collapse}
-      collapsedWidth={collapsible ? 0 : 80}
+      collapsedWidth={collapsible ? 0 : 60}
       className="sider"
     >
       <Menu

@@ -6,9 +6,9 @@ const notificationTypes = {
   Info: 'Info',
 
   // Action Type
-  Added_Successfull: 'Added successfull',
-  Updated_Successfull: 'Updated successfull',
-  Deleted_Successfull: 'Deleted successfull',
+  Added_Successful: 'Added successful',
+  Updated_Successful: 'Updated successful',
+  Deleted_Successful: 'Deleted successful',
 };
 
 export default notificationTypes;

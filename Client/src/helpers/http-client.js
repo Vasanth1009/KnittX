@@ -11,7 +11,6 @@ axiosInstance.interceptors.request.use(
   async function (config) {
     const user = auth.currentUser;
     const token = user && (await user.getIdToken());
-    console.log(user);
     return {
       ...config,
       headers: {
